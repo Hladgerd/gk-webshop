@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->references('id')->on('orders');
-            $table->unsignedBigInteger('total', 10, 2);
+            $table->unsignedBigInteger('total');
             $table->string('status', 45);
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->timestamps();
