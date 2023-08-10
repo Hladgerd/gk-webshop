@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('name', 2000);
             $table->string('slug')->unique();
             $table->longText('description')->nullable();
-            $table->decimal('price', 10, 2);
-            $table->decimal('3_pcs_disc', 10, 2);
-            $table->decimal('5_pcs_disc', 10, 2);
+            $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('3_pcs_disc');
+            $table->unsignedBigInteger('5_pcs_disc');
             $table->foreignIdFor(User::class, 'created_by')->nullable();
             $table->foreignIdFor(User::class, 'updated_by')->nullable();
             $table->softDeletes();
