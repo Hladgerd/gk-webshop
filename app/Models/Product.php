@@ -17,4 +17,9 @@ class Product extends Model
         '3_pcs_disc',
         '5_pcs_disc'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
