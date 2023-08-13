@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
                 'price' => rand(9, 9999),
                 '3_pcs_disc' => rand(0, 5),
                 '5_pcs_disc' => rand(6, 10),
+                'created_by' => rand(1, 10)
             ]);
         }
     }
