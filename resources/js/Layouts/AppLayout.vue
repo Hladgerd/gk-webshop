@@ -41,12 +41,12 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    All products
+                                    Buy
                                 </NavLink>
                                 <NavLink :href="route('products.index')" :active="route().current('products.index')">
-                                    Own Products
+                                    Sell
                                 </NavLink>
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                <NavLink :href="route('cart')" :active="route().current('cart')">
                                     Shopping Cart
                                 </NavLink>
                             </div>
@@ -133,12 +133,12 @@ const logout = () => {
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            All products
+                            Buy
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('products.index')" :active="route().current('products.index')">
-                            Own products
+                            Sell
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                        <ResponsiveNavLink :href="route('cart')" :active="route().current('cart')">
                             Shopping Cart
                         </ResponsiveNavLink>
                     </div>
