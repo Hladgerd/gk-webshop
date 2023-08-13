@@ -1898,53 +1898,45 @@ defineProps({
             </div>
 
             <div class="mt-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                    <a href="https://laravel.com/docs" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div
-                            class="mx-auto h-80 max-w-lg overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat shadow-lg"
-                            style="background-image:url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp');">
-                            <div class="mt-40">
-                                <div class="bg-white p-4 sm:p-8">
-                                    <div
-                                        class="font-inter text-2xl font-extrabold tracking-tight text-black">
-                                        Majestic peaks, nature's embrace.
-                                    </div>
-                                    <div class="mt-1 text-sm font-medium text-slate-500">
-                                        Adventure calls, conquer mountain trails.
-                                    </div>
-                                    <p class="mt-4 leading-7 text-slate-500">
-                                        In the realm of towering mountains, where the air is crisp and
-                                        the vistas stretch endlessly, one finds solace, exhilaration,
-                                        and a profound connection with the untamed beauty of the natural
-                                        world.
-                                    </p>
-                                    <p class="mt-4 leading-7 text-slate-500">
-                                        As the sun rises over the rugged peaks, casting a golden glow on
-                                        the majestic landscape, a sense of awe fills the heart,
-                                        reminding us of the grandeur and power that reside in the
-                                        mountains.
-                                    </p>
-                                </div>
-                            </div>
+                <div v-if="canLogin" class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                    <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                        <div>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">BUY</h2>
+                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                Buy beautifull cats, dogs and everything they need.
+                            </p>
                         </div>
-                    </a>
+                    </Link>
+                    <template v-else>
+                        <Link :href="route('login')" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">BUY</h2>
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Buy beautifull cats, dogs and everything they need.
+                                </p>
+                            </div>
+                        </Link>
+                    </template>
 
-                    <a href="https://laracasts.com" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
-                        <div class="mx-auto h-80 max-w-lg overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat shadow-lg"
-                            style="background-image:url('https://mdbcdn.b-cdn.net/img/Photos/Vertical/mountain3.webp');">
-                            <div class="mt-40">
-                                <div class="bg-white p-4 sm:p-8">
-                                    <div
-                                        class="font-inter text-2xl font-extrabold tracking-tight text-black">
-                                        Majestic peaks, nature's embrace.
-                                    </div>
-                                    <div class="mt-1 text-sm font-medium text-slate-500">
-                                        Adventure calls, conquer mountain trails.
-                                    </div>
-                                </div>
-                            </div>
+
+                    <Link v-if="$page.props.auth.user" :href="route('dashboard')" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                        <div>
+                            <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">BUY</h2>
+                            <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                Buy beautiful cats, dogs and everything they need.
+                            </p>
                         </div>
-                    </a>
+                    </Link>
+                    <template v-else>
+                        <Link :href="route('login')" class="scale-100 p-6 bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none flex motion-safe:hover:scale-[1.01] transition-all duration-250 focus:outline focus:outline-2 focus:outline-red-500">
+                            <div>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">SELL</h2>
+                                <p class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                    Sell the never used cat toys or dog cloths.
+                                </p>
+                            </div>
+                        </Link>
+                    </template>
                 </div>
             </div>
 
