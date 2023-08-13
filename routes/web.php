@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\WelcomeController;
@@ -17,11 +18,14 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/**  WELCOME */
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
+/**  SHOP */
 Route::get('/dashboard', [ShopController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/{product:slug}', [ShopController::class, 'show'])->name('dashboard.show');
 
+/**  SELL */
 Route::resource('products', ProductController::class)->except(['update']);
 
 Route::prefix('products')->group(function () {
@@ -29,6 +33,10 @@ Route::prefix('products')->group(function () {
     Route::post('/update/{product}', [ProductController::class, 'update'])->name('products.update');
 });
 
+/**  CART */
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+/**  USER AUTH */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
