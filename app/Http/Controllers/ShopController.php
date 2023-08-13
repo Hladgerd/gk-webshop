@@ -13,8 +13,9 @@ class ShopController extends Controller
      */
     public function index()
     {
+        $products = Product::inRandomOrder()->get(['name']);
         return Inertia::render('Dashboard/Dashboard', [
-            'products' => Product::all()
+            'products' => $products,
         ]);
     }
 
@@ -39,7 +40,9 @@ class ShopController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('Shop/Show', [
+            'product' => $product,
+        ]);
     }
 
     /**
