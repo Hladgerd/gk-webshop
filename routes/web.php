@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,15 @@ use Inertia\Inertia;
 */
 
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
+
+Route::get('/dashboard', [ShopController::class, 'index'])->name('dashboard');
+
+Route::resource('products', ProductController::class)->except(['update']);
+
+Route::prefix('products')->group(function () {
+    Route::put('/publish/{product}', [ProductController::class, 'publish'])->name('products.publish');
+    Route::post('/update/{product}', [ProductController::class, 'update'])->name('products.update');
+});
 
 Route::middleware([
     'auth:sanctum',
