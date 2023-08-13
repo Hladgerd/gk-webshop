@@ -16,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Dashboard/Products/Index');
+        $products = Product::all();
+        return Inertia::render('Dashboard/MyProducts/Index');
     }
 
     /**
@@ -25,7 +26,7 @@ class ProductController extends Controller
     public function create()
     {
         return Inertia::render(
-            'Dashboard/Products/Create'
+            'Dashboard/MyProducts/Create'
         );
     }
 
@@ -51,7 +52,7 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         return Inertia::render(
-            'Dashboard/Products/Edit',
+            'Dashboard/MyProducts/Edit',
             [
                 'product' => $product
             ]
@@ -74,7 +75,7 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()
-            ->route('products.index')
+            ->route('my-products.index')
             ->with('message', 'Product Deleted Successfully');
     }
 }
