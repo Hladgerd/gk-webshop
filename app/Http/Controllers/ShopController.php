@@ -39,7 +39,9 @@ class ShopController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return Inertia::render('Dashboard/Show', [
+            'product = $product'
+        ]);
     }
 
     /**
