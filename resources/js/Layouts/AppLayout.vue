@@ -33,7 +33,7 @@ const logout = () => {
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('welcome')">
                                     <ApplicationMark class="block h-9 w-auto" />
                                 </Link>
                             </div>
@@ -41,15 +41,18 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Buy
+                                    All products
+                                </NavLink>
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Own Products
+                                </NavLink>
+                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Shopping Cart
                                 </NavLink>
                             </div>
                         </div>
 
                         <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <div class="ml-3 relative">
-                               Placeholder
-                            </div>
 
                             <!-- Settings Dropdown -->
                             <div class="ml-3 relative">
@@ -130,7 +133,13 @@ const logout = () => {
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
                         <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Buy
+                            All products
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                            Own products
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                            Shopping Cart
                         </ResponsiveNavLink>
                     </div>
 
