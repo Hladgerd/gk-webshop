@@ -1,13 +1,13 @@
 A feladatot az alábbi részletekkel sikerült megvalósítani
 
-## Általános webalkalmazások:
+## Megvalósított általános webalkalmazások:
 
 - felhasználó be tud jelentkezni,
 - termékeket tud rögzíteni/módosítani/törölni,
 - a bejelentkezett felhasználó tud vásárlásokat rögzíteni/módosítani/törölni,
 - a vásárlásba termékeket beválogatni
 
-## Alap funkcionalitások:
+## Megvalósított alap funkcionalitások:
 
 - Regisztráció
 - Bejelentkezés
@@ -16,12 +16,12 @@ A feladatot az alábbi részletekkel sikerült megvalósítani
 - Profiloldal
 - Jelszóváltoztatás
 
-## Alap követelmények
+## Megvalósított alap követelmények
 
 - Frontend Validáció
 - Kötelezőség megjelenítése
 
-## Üzleti funkcionalitás
+## Megvalósított üzleti funkcionalitás
 
 :: Menü
 
@@ -30,8 +30,8 @@ A feladatot az alábbi részletekkel sikerült megvalósítani
 - Új termék
   Név
   Egységár
-  3 darabos ár
-  5 darabos ár
+  3 darabos ár (egyelőre csak a termék táblán belül kezelve)
+  5 darabos ár (egyelőre csak a termék táblán belül kezelve)
 - Termék módosítása
 - Termék törlése
 
