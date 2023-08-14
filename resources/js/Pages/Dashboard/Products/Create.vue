@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm } from "@inertiajs/vue3";
+import { useForm, usePage } from "@inertiajs/vue3";
 
 const props = defineProps({
     products: {
@@ -16,6 +16,7 @@ const form = useForm({
     price: '',
     disc3Pc: '',
     disc5Pc: '',
+    createdBy: usePage().props.auth.user.id,
 });
 
 const submit = () => {
