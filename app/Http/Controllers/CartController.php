@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -12,7 +13,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Dashboard/Cart/Index');
+        return Inertia::render('Dashboard/Cart/Index', [
+            'cartItems' => Cart::content(),
+        ]);
     }
 
     /**
@@ -28,7 +31,13 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Cart::add($request->id, $request->name, $request->quantity, $request->price,
+            ['user_id' => $request->user, '3_pcs_disc' => $request->disc3Pc, '5_pcs_disc' => $request->disc5Pc, 'status' => $request->status])
+            ->associate('App\Models\Product');
+
+        return redirect()
+            ->route('cart.index')
+            ->with('message', 'Product added to Cart successfully');
     }
 
     /**
@@ -52,7 +61,9 @@ class CartController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Cart::update($request->quantity, $id);
+
+        return back();
     }
 
     /**
@@ -60,6 +71,7 @@ class CartController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Cart::remove($id);
+        return back();
     }
 }
