@@ -24,9 +24,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render(
-            'Dashboard/Products/Create'
-        );
+        return Inertia::render('Dashboard/Products/Create');
     }
 
     /**
@@ -34,7 +32,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->safe());
+
+        return redirect()
+            ->route('products.index')
+            ->with('message', 'Product Created Successfully');
     }
 
     /**
@@ -50,9 +52,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return Inertia::render(
-            'Dashboard/Products/Edit',
-            [
+        return Inertia::render('Dashboard/Products/Edit', [
                 'product' => $product
             ]
         );
@@ -63,7 +63,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->safe());
+
+        return redirect()
+            ->route('products.index')
+            ->with('message', 'Product Updated Successfully');
     }
 
     /**
