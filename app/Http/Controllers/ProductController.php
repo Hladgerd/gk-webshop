@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Inertia\Inertia;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-
+use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -16,8 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return Inertia::render('Dashboard/MyProducts/Index');
+        return Inertia::render('Dashboard/Products/Index', [
+            'products' => Product::all()
+        ]);
     }
 
     /**
@@ -25,9 +23,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return Inertia::render(
-            'Dashboard/MyProducts/Create'
-        );
+        return Inertia::render('Dashboard/Products/Create');
     }
 
     /**
@@ -35,7 +31,11 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->safe());
+
+        return redirect()
+            ->route('products.index')
+            ->with('message', 'Product Created Successfully');
     }
 
     /**
@@ -51,9 +51,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return Inertia::render(
-            'Dashboard/MyProducts/Edit',
-            [
+        return Inertia::render('Dashboard/Products/Edit', [
                 'product' => $product
             ]
         );
@@ -64,7 +62,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->safe());
+
+        return redirect()
+            ->route('products.index')
+            ->with('message', 'Product Updated Successfully');
     }
 
     /**
@@ -75,7 +77,7 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()
-            ->route('my-products.index')
+            ->route('products.index')
             ->with('message', 'Product Deleted Successfully');
     }
 }

@@ -16,6 +16,7 @@ class OrderStatusSeeder extends Seeder
         OrderStatus::insert([
             ['status' => 'Pending'],
             ['status' => 'Finalised'],
+            ['status' => 'Deleted'],
         ]);
     }
 }
