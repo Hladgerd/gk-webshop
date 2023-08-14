@@ -53,7 +53,6 @@ function destroy(id) {
                                     </thead>
                                     <tbody>
                                     <tr v-for="product in products.data" :key="product.id"
-                                        v-if="$page.props.auth.user.id === product.createdBy"
                                         class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
                                             {{ product.name }} </td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class ProductController extends Controller
@@ -13,8 +14,10 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $products = Product::where('created_by', '=', Auth::user()->id);
+
         return Inertia::render('Dashboard/Products/Index', [
-            'products' => Product::all()
+            'products' => $products
         ]);
     }
 
