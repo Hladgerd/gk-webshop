@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ShopController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -14,22 +18,28 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+/**  WELCOME */
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+/**  SHOP */
+Route::resource('dashboard', ShopController::class)->parameter('dashboard', 'product:slug')->only(['index', 'show']);
+
+/**  SELL */
+Route::resource('products', ProductController::class)->except(['update']);
+Route::prefix('products')->group(function () {
+    Route::post('/update/{product:slug}', [ProductController::class, 'update'])->name('products.update');
 });
 
+/**  CART */
+Route::resource('cart', CartController::class)->except(['edit', 'create']);
+
+/**  USER AUTH */
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Dashboard/Dashboard');
     })->name('dashboard');
 });

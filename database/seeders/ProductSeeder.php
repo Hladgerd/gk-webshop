@@ -3,16 +3,16 @@
 namespace Database\Seeders;
 
 use App\Models\Product;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
-    public function run() {
+    public function run(): void
+    {
         for ($i=1; $i <= 12; $i++) {
             Product::create([
                 'name' => 'Product '.$i,
@@ -21,6 +21,7 @@ class ProductSeeder extends Seeder
                 'price' => rand(9, 9999),
                 '3_pcs_disc' => rand(0, 5),
                 '5_pcs_disc' => rand(6, 10),
+                'created_by' => rand(1, 10)
             ]);
         }
     }
