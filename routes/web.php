@@ -31,7 +31,7 @@ Route::prefix('products')->group(function () {
 });
 
 /**  CART */
-Route::get('/cart', [CartController::class, 'index'])->name('cart');
+Route::resource('cart', CartController::class)->except(['edit', 'create']);
 
 /**  USER AUTH */
 Route::middleware([
