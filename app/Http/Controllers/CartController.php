@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CartController extends Controller
@@ -14,7 +15,8 @@ class CartController extends Controller
     public function index()
     {
         return Inertia::render('Dashboard/Cart/Index', [
-            'cartItems' => Cart::content(),
+            'cartItems' => Cart::content()
+                ->where('user', '=', Auth::user()->id),
         ]);
     }
 
