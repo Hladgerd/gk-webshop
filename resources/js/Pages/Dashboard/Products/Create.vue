@@ -16,7 +16,6 @@ const form = useForm({
     price: '',
     disc3Pc: '',
     disc5Pc: '',
-
 });
 
 const submit = () => {
