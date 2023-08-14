@@ -1,57 +1,47 @@
-A feladatot az alábbi részletekkel sikerült megvalósítani
+This is a general web application where users can login, 
+logged-in users can register/edit/delete products, 
+they can register/edit/delete orders and add products to it
 
-## Megvalósított általános webalkalmazások:
+## Base functionalities:
 
-- felhasználó be tud jelentkezni,
-- termékeket tud rögzíteni/módosítani/törölni,
-- a bejelentkezett felhasználó tud vásárlásokat rögzíteni/módosítani/törölni,
-- a vásárlásba termékeket beválogatni
-
-## Megvalósított alap funkcionalitások:
-
-- Regisztráció
-- Bejelentkezés
-- Elfelejtett jelszó
+- Registration
+- Login
+- Forgot password
 - 2FA
-- Profiloldal
-- Jelszóváltoztatás
+- Profile page
+- Change password
 
-## Megvalósított alap követelmények
+## Base requirements:
 
-- Frontend Validáció
-- Kötelezőség megjelenítése
+- Frontend Validation
 
-## Megvalósított üzleti funkcionalitás
+## Business functionalities:
 
-:: Menü
+:: Menu
 
-: Termékek
+: Products
 
-- Új termék
-  Név
-  Egységár
-  3 darabos ár (egyelőre csak a termék táblán belül kezelve)
-  5 darabos ár (egyelőre csak a termék táblán belül kezelve)
-- Termék módosítása
-- Termék törlése
+- New product
+  * Name
+  * Unit price
+  * Price for 3pcs
+  * Price for 5pcs
+- Edit product
+- Delete product
 
-  : Vásárlások
 
-- Új vásárlás
-  Termékek hozzáadása, vásárolt mennyiség megadása
-- Vásárlás módosítása
-- Vásárlás törlése - amennyiben még nincs a vásárlás véglegesítve
+  : Orders
 
-## Használt módszertanok
+- New order
+  * Add product
+  * Add qty
+- Edit order
+- Delete order
 
-- MVC
-- OOP
-- SFC
-- Újrahasználható komponens alapú tervezés (csak kis részben)
 
-## Használt technológiák
+## Used technologies:
 
-- Laravel keretrendszer
+- Laravel framework
 - Jetstream
 - Inertia
 - Vue.js
