@@ -50,35 +50,27 @@ const submit = () => {
 
                         <form @submit.prevent="submit">
                             <div class="mb-6">
-                                <div>
-                                    <progress class="progress progress-success w-44" v-if="form.progress"
-                                              :value="form.progress.percentage" max="100">
-                                        {{ form.progress.percentage }}%
-                                    </progress>
-                                </div>
-                            </div>
-                            <div class="mb-6">
-                                <label for="Name"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name</label>
+                                <label for="name"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Name*</label>
                                 <input type="text" v-model="form.name"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required
                                        placeholder="" />
                                 <div v-if="form.errors.name" class="text-sm text-red-600">
                                     {{ form.errors.name }}
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="Slug"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Slug</label>
+                                <label for="slug"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Slug*</label>
                                 <input type="text" v-model="form.slug"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required
                                        placeholder="" />
                                 <div v-if="form.errors.slug" class="text-sm text-red-600">
                                     {{ form.errors.slug }}
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="slug"
+                                <label for="description"
                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Description</label>
                                 <textarea type="text" v-model="form.description"
                                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"></textarea>
@@ -88,18 +80,18 @@ const submit = () => {
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="Price"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price</label>
+                                <label for="price"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Price*</label>
                                 <input type="text" v-model="form.price"
-                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required
                                        placeholder="" />
                                 <div v-if="form.errors.price" class="text-sm text-red-600">
                                     {{ form.errors.price }}
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="Disc3Pc"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Discount 3Pc</label>
+                                <label for="disc3Pc"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Discount 3Pcs</label>
                                 <input type="text" v-model="form.disc3Pc"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                        placeholder="" />
@@ -108,8 +100,8 @@ const submit = () => {
                                 </div>
                             </div>
                             <div class="mb-6">
-                                <label for="Disc5Pc"
-                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Discount 5Pc</label>
+                                <label for="disc5Pc"
+                                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Discount 5Pcs</label>
                                 <input type="text" v-model="form.disc5Pc"
                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                                        placeholder="" />
