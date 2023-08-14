@@ -43,7 +43,6 @@ function destroy(id) {
                                 <table class="table table-compact w-full text-center table-zebra">
                                     <thead class=" text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                                     <tr>
-                                        <th scope="col" class="px-6 py-3">Id</th>
                                         <th scope="col" class="px-6 py-3">Name</th>
                                         <th scope="col" class="px-6 py-3">Slug</th>
                                         <th scope="col" class="px-6 py-3">Description</th>
@@ -54,9 +53,8 @@ function destroy(id) {
                                     </thead>
                                     <tbody>
                                     <tr v-for="product in products.data" :key="product.id"
+                                        v-if="$page.props.auth.user.id === product.createdBy"
                                         class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                                        <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                                            {{ product.id }} </td>
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
                                             {{ product.name }} </td>
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
@@ -66,14 +64,12 @@ function destroy(id) {
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
                                             {{ product.price }} </td>
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                                            <div v-if="product.permissions.edit">
-                                                <Link :href="route('products.edit', product.id)" class="btn btn-warning">
-                                                    Edit
-                                                </Link>
-                                            </div>
+                                            <Link :href="route('products.edit', product.id)" class="btn btn-warning">
+                                                Edit
+                                            </Link>
                                         </td>
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                                            <button v-if="product.permissions.delete" @click="destroy(product.id)"
+                                            <button @click="destroy(product)"
                                                     class="btn btn-error">Delete</button>
                                         </td>
                                     </tr>
