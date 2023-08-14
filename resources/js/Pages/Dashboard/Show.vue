@@ -17,11 +17,11 @@ const form = useForm({
     price: this.product.price,
     disc3Pc: this.product.disc3Pc,
     disc5Pc: this.product.disc5Pc,
-    quantity: 1,
+    quantity: '',
 });
 
 const submit = () => {
-    this.form.post(this.route('products.store', this.form));
+    this.form.post(this.route('cart.store', this.form));
 };
 </script>
 
@@ -35,12 +35,16 @@ const submit = () => {
                     <div class="flex justify-between items-center">
                         <h2 class="text-2xl font-semibold capitalize italic">{{ product.name }}</h2>
                         <div class="text-xl capitalize italic">
-                            <span>
-                                Price:
-                            </span>
-                            <span>
-                                {{ product.price }}
-                            </span>
+                            <span>Price:</span>
+                            <span>{{ product.price }}</span>
+                        </div>
+                        <div class="text-xl capitalize italic">
+                            <span>Discount 3pcs:</span>
+                            <span>{{ product.disc3Pc }}</span>
+                        </div>
+                        <div class="text-xl capitalize italic">
+                            <span>Discount 5pcs:</span>
+                            <span>{{ product.disc5Pc }}</span>
                         </div>
                     </div>
                     <div class="flex space-x-4 mt-4">
@@ -48,21 +52,22 @@ const submit = () => {
                             {{ product.description }}
                         </p>
                     </div>
+                    <div class="flex space-x-4 mt-4">
+                        <label for="quantity"
+                               class="flex-1 text-xl capitalize">Qty:</label>
+                        <input type="text" v-model="form.quantity" name="quantity"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                               placeholder="" />
+                        <div v-if="form.errors.quantity" class="text-sm text-red-600">
+                            {{ form.errors.quantity }}
+                        </div>
+                    </div>
                     <div class="text-center mt-4">
                         <button type="submit" class="text-sm">
                             <span>Add to Cart</span>
                         </button>
                     </div>
                 </form>
-                <div class="flex flex-col divide-y">
-                    <div>
-                        <div class="bg-gray-50 px-4 py-4 sm:px-6 lg:px-8">
-                            <p>
-                                {{ product.description }}
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </AppLayout>
