@@ -41,6 +41,7 @@ class ShopController extends Controller
     {
         return Inertia::render('Dashboard/Show', [
             'product' => $product
+                ->only('id', 'name', 'description', 'price', 'disc3Pc', 'disc5Pc'),
         ]);
     }
 
