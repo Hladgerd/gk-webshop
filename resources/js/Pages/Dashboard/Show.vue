@@ -1,6 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Link, useForm } from '@inertiajs/vue3'
+import { useForm } from '@inertiajs/vue3'
 
 const props = defineProps({
     product: {
@@ -39,7 +39,7 @@ const submit = () => {
                                 Price:
                             </span>
                             <span>
-                                {{ $filters.formatCurrency(product.price) }}
+                                {{ product.price }}
                             </span>
                         </div>
                     </div>
