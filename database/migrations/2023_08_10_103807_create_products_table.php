@@ -20,9 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('price');
             $table->unsignedBigInteger('3_pcs_disc');
             $table->unsignedBigInteger('5_pcs_disc');
-            $table->foreignIdFor(User::class, 'created_by')->nullable();
-            $table->foreignIdFor(User::class, 'updated_by')->nullable();
-            $table->foreignIdFor(User::class, 'deleted_by')->nullable();
+            $table->foreignIdFor(User::class, 'created_by');
             $table->timestamps();
         });
     }
