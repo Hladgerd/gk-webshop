@@ -22,15 +22,12 @@ use Inertia\Inertia;
 Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 /**  SHOP */
-Route::get('/dashboard', [ShopController::class, 'index'])->name('dashboard');
-Route::get('/dashboard/{product:slug}', [ShopController::class, 'show'])->name('dashboard.show');
+Route::resource('dashboard', ShopController::class)->parameter('dashboard', 'product:slug')->only(['index', 'show']);
 
 /**  SELL */
 Route::resource('products', ProductController::class)->except(['update']);
-
 Route::prefix('products')->group(function () {
-    Route::put('/publish/{product}', [ProductController::class, 'publish'])->name('products.publish');
-    Route::post('/update/{product}', [ProductController::class, 'update'])->name('products.update');
+    Route::post('/update/{product:slug}', [ProductController::class, 'update'])->name('products.update');
 });
 
 /**  CART */
