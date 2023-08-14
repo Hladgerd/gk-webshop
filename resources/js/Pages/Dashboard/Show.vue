@@ -12,8 +12,7 @@ const props = defineProps({
 const form = useForm({
     id: this.product.id,
     name: this.product.name,
-    slug: this.product.slug,
-    details: this.product.details,
+    description: this.product.description,
     price: this.product.price,
     disc3Pc: this.product.disc3Pc,
     disc5Pc: this.product.disc5Pc,
