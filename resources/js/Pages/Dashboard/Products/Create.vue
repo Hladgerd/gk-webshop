@@ -3,10 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm, usePage } from "@inertiajs/vue3";
 
 const props = defineProps({
-    products: {
-        type: Object,
-        default: () => ({}),
-    },
+    products: Object
 });
 
 const form = useForm({

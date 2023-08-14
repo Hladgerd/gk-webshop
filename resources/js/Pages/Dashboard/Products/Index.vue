@@ -3,10 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link, useForm } from "@inertiajs/vue3";
 
 const props = defineProps({
-    products: {
-        type: Object,
-        default: () => ({}),
-    }
+    products: Object
 });
 
 const form = useForm();
@@ -52,7 +49,7 @@ function destroy(id) {
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="product in products.data" :key="product.id"
+                                    <tr v-for="(product, index) in products" :key="index"
                                         class=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
                                         <td class=" px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
                                             {{ product.name }} </td>

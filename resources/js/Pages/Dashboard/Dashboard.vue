@@ -3,10 +3,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from "@inertiajs/vue3";
 
 const props = defineProps({
-    products: {
-        type: Object,
-        default: () => ({}),
-    },
+    products: Object
 });
 </script>
 
